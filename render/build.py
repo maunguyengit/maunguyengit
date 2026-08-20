@@ -77,7 +77,7 @@ PARAM_BLOCK = """<!-- gyroid:params -->
 |:--|:--|:--|--:|
 | $f$ | cell frequency of the gyroid lattice | public repositories | `{freq:.4f}` |
 | $\\alpha$ | tilt of the lattice inside the ball | stars received | `{tilt:.4f}` |
-| $\\delta$ | palette rotation | commits $\\times\\ \\varphi \\bmod 1$ | `{palette_shift:.4f}` |
+| $\\delta$ | palette rotation | commits $\\times \\varphi \\bmod 1$ | `{palette_shift:.4f}` |
 | $\\tau$ | shell half-thickness | pinned — see below | `{thickness:.4f}` |
 | $R$ | clipping ball radius | pinned | `{radius:.4f}` |
 
