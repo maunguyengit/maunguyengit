@@ -65,13 +65,13 @@ colour palette:
 <!-- gyroid:params -->
 | symbol | meaning | driven by | current |
 |:--|:--|:--|--:|
-| $f$ | cell frequency of the gyroid lattice | public repositories | `3.2809` |
+| $f$ | cell frequency of the gyroid lattice | public repositories | `3.2109` |
 | $\alpha$ | tilt of the lattice inside the ball | stars received | `0.1146` |
-| $\delta$ | palette rotation | commits $\times \varphi \bmod 1$ | `0.0000` |
+| $\delta$ | palette rotation | commits $\times \varphi \bmod 1$ | `0.2624` |
 | $\tau$ | shell half-thickness | pinned — see below | `0.3200` |
 | $R$ | clipping ball radius | pinned | `1.2800` |
 
-<sub>Rendered 2026-08-20 04:39 UTC from live GitHub data · 40 frames · 1080×608 at 2× supersampling · 176 march steps</sub>
+<sub>Rendered 2026-08-20 04:54 UTC from live GitHub data · 40 frames · 1080×608 at 2× supersampling · 176 march steps</sub>
 <!-- /gyroid:params -->
 
 Every input goes through `tanh`, so each parameter is bounded and monotone — growth
