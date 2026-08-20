@@ -13,7 +13,10 @@ permissions:
 
 concurrency:
   group: render
-  cancel-in-progress: true
+  # Queue, never cancel. This job commits the assets it renders, so killing a
+  # run mid-flight throws away the whole render and leaves stale files on the
+  # branch -- which is exactly what happened to the first two runs here.
+  cancel-in-progress: false
 
 jobs:
   gyroid:
