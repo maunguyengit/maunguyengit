@@ -1,0 +1,48 @@
+name: render
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"      # every six hours, off the hour to dodge the rush
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["render/**", ".github/workflows/render.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: render
+  cancel-in-progress: true
+
+jobs:
+  gyroid:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Render
+        env:
+          # GITHUB_TOKEN reads public data. For private-contribution counts,
+          # add a classic PAT with read:user as the GH_TOKEN secret.
+          GH_TOKEN: ${{ secrets.GH_TOKEN || github.token }}
+        run: python render/build.py --user "${{ github.repository_owner }}"
+
+      - name: Commit if the render changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets README.md
+          if git diff --staged --quiet; then
+            echo "nothing changed"
+          else
+            git commit -m "render: gyroid at $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+            git push
+          fi
