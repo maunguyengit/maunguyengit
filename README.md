@@ -71,7 +71,7 @@ colour palette:
 | $\tau$ | shell half-thickness | pinned — see below | `0.3200` |
 | $R$ | clipping ball radius | pinned | `1.2800` |
 
-<sub>Rendered 2026-09-04 04:51 UTC from live GitHub data · 40 frames · 1080×608 at 2× supersampling · 176 march steps</sub>
+<sub>Rendered 2026-09-04 11:36 UTC from live GitHub data · 40 frames · 1080×608 at 2× supersampling · 176 march steps</sub>
 <!-- /gyroid:params -->
 
 Every input goes through `tanh`, so each parameter is bounded and monotone — growth
